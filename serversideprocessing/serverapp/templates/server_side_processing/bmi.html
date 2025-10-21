@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <style>
+            
+            form{
+                text-align: center;
+                margin-top: 13%;
+                margin-left: 36%;
+                width: 350px;
+                /* border: 5px solid rgb(9, 5, 1); */
+                padding: 2%;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                background-color: white;
+            }
+            label{
+                font-size: 18px;
+                font-weight: bold;
+            }
+            div{
+                margin: 10px;
+            }
+            input{
+                width: 200px;
+                height: 25px;
+                border-radius: 5px;
+                border: 1px solid gray;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body style="background-color: rgb(210, 215, 215);">
+        <form method="post">
+            <h1 style="color: rgb(57, 2, 160)">BMI Calculator</h1>
+          {% csrf_token %}
+            <div>
+                <label>Height (cm):</label>
+                <input type="text" name="height">
+            </div>
+            
+            <div>
+                <label>Weight (kg):</label>
+                <input type="text" name="weight"><br>
+            </div>
+            
+            <div>
+                <button type="submit">Calculate</button>
+            </div>
+             
+            <div>
+                {% if BMI %}
+                <h3>Your BMI is: {{ BMI }}</h3>
+                {% endif %}
+            </div>
+            
+            
+        </form>      
+    </body>
+</html>
